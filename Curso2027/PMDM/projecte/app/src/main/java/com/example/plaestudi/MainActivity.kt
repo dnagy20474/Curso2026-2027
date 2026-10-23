@@ -42,12 +42,18 @@ fun Greeting(name: String, modifier: Modifier = Modifier) {
         modifier = modifier
 
     )
+    // Inici zona de treball
+    val materia = "PMDM"
+    val minuts = 25
+    val sessions = 4
+    val total = minuts * sessions
     Column(modifier.padding(24.dp)) {
-        Text("Objectiu aconseguit")
-        Text("La meva primera app")
-        Text("Estic aprenent a modificar una pantalla")
+        Text("Matèria: $materia")
+        Text("Minuts per sessió: $minuts")
+        Text("Sessions: $sessions")
+        Text("Total: $total minuts")
     }
-
+    // Fin zona de treball
 }
 
 @Preview(showBackground = true)
