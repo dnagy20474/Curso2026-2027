@@ -46,7 +46,7 @@ fun Greeting(name: String, modifier: Modifier = Modifier) {
     val materia = "PMDM"
     val minuts = 25
     val sessions = 4
-    val total = minuts * sessions
+    val total = minuts + sessions
     Column(modifier.padding(24.dp)) {
         Text("Matèria: $materia")
         Text("Minuts per sessió: $minuts")
