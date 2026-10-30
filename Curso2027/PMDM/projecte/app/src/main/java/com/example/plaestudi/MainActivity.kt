@@ -5,20 +5,17 @@ import androidx.activity.*
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.imePadding
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
-import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Scaffold
-import androidx.compose.material3.Text
+import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.*
 import androidx.compose.ui.tooling.preview.*
 import androidx.compose.ui.unit.dp
-import com.example.plaestudi.ui.theme.PlaEstudiTheme
+import com.example.plaestudi.ui.theme.*
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -47,21 +44,25 @@ fun Greeting(name: String, modifier: Modifier = Modifier) {
         modifier = modifier
     )
     // Inici zona de treball
-    val materia = "PMDM"
-    val minuts = 25
-    val sessions = 4
-    val total = minuts * sessions
+    var sessions by remember { mutableStateOf(0) }
     Column(
         modifier = modifier.fillMaxSize().imePadding()
             .verticalScroll(rememberScrollState()).padding(24.dp),
         verticalArrangement = Arrangement.spacedBy(12.dp)
     ) {
-        Text("El meu pla",
-            style = MaterialTheme.typography.headlineMedium)
-        Text("Matèria: $materia")
-        Text("Minuts per sessió: $minuts")
+        Text("Comptador de sessions")
         Text("Sessions: $sessions")
-        Text("Total: $total minuts")
+        Button(onClick = { sessions = sessions + 1 }) {
+            Text("Afegir sessió")
+        }
+        Button(onClick = {
+            if (sessions > 0) sessions = sessions - 1
+        }) {
+            Text("Restar sessió")
+        }
+        Button(onClick = { sessions = 0 }) {
+            Text("Reiniciar")
+        }
     }
     // Fin zona de treball
 }
