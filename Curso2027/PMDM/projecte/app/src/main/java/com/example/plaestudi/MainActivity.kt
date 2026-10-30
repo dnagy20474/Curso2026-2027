@@ -44,24 +44,27 @@ fun Greeting(name: String, modifier: Modifier = Modifier) {
         modifier = modifier
     )
     // Inici zona de treball
-    var sessions by remember { mutableStateOf(0) }
+    var minutsText by remember { mutableStateOf("25") }
+    val minuts = minutsText.toIntOrNull() ?: 0
+    val sessions = 2
     Column(
         modifier = modifier.fillMaxSize().imePadding()
             .verticalScroll(rememberScrollState()).padding(24.dp),
         verticalArrangement = Arrangement.spacedBy(12.dp)
     ) {
-        Text("Comptador de sessions")
-        Text("Sessions: $sessions")
-        Button(onClick = { sessions = sessions + 1 }) {
-            Text("Afegir sessió")
-        }
-        Button(onClick = {
-            if (sessions > 0) sessions = sessions - 1
-        }) {
-            Text("Restar sessió")
-        }
-        Button(onClick = { sessions = 0 }) {
-            Text("Reiniciar")
+        Text("Calculadora de dues sessions")
+        OutlinedTextField(
+            value = minutsText,
+            onValueChange = { minutsText = it },
+            label = { Text("Minuts per sessió") },
+            singleLine = true,
+            modifier = Modifier.fillMaxWidth()
+        )
+        if (minuts in 1..180) {
+            val total = minuts * sessions
+            Text("Total: $total minuts")
+        } else {
+            Text("Escriu un enter entre 1 i 180")
         }
     }
     // Fin zona de treball
