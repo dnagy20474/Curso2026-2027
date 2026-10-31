@@ -2,19 +2,14 @@ package com.example.plaestudi
 
 import android.os.*
 import androidx.activity.*
-import androidx.activity.compose.setContent
-import androidx.activity.enableEdgeToEdge
+import androidx.activity.compose.*
 import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.imePadding
-import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.rememberScrollState
-import androidx.compose.foundation.verticalScroll
+import androidx.compose.foundation.*
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.*
 import androidx.compose.ui.tooling.preview.*
-import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.*
 import com.example.plaestudi.ui.theme.*
 
 class MainActivity : ComponentActivity() {
