@@ -68,7 +68,7 @@ fun Greeting(name: String, modifier: Modifier = Modifier) {
             enabled = sessions > 0
         ) { Text("Restar sessió") }
         Button(onClick = { sessions = 0 }) {
-            Text("Reinici de sessions")
+            Text("Tornar a zero")
         }
         if (minuts in 1..180) {
             val total = minuts * sessions
